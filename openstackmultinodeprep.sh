@@ -49,6 +49,8 @@ echo "enable_trove: "yes""  >> globals.yml
 echo "glance_backend_file: "no"" >> globals.yml
 echo "enable_magnum: "yes"" >> globals.yml
 echo "enable_cluster_user_trust: true" >> globals.yml
+echo "enable_mariabackup: "yes"" >> globals.yml
+
 
 ## If your having more than 3 controllers and compute, update the below details 
 sed -i '6,7 s/^/#/' multinode
