@@ -4,14 +4,14 @@ Openstack_VIP='172.90.0.201'
 Internal_NIC_Name='ens192'
 External_NIC_Name='ens224'
 
-#opentack multi node deployment
+#openstack multi node deployment
 yum update -y
 dnf install git python3-devel libffi-devel gcc openssl-devel python3-libselinux -y
 dnf install python3-pip -y
 pip3 install -U pip
 pip install 'ansible-core>=2.13,<=2.14.2'
 pip install 'ansible>=6,<8'
-pip3 install git+https://opendev.org/openstack/kolla-ansible@stable/$Openstack_Version --ignore-installed requestes
+pip3 install git+https://opendev.org/openstack/kolla-ansible@stable/$Openstack_Version --ignore-installed requests
 sudo mkdir -p /etc/kolla
 sudo chown $USER:$USER /etc/kolla
 cp -r /usr/local/share/kolla-ansible/etc_examples/kolla/* /etc/kolla
@@ -52,7 +52,7 @@ echo "enable_cluster_user_trust: true" >> globals.yml
 echo "enable_mariabackup: "yes"" >> globals.yml
 
 
-## If your having more than 3 controllers and compute, update the below details 
+## If you're having more than 3 controllers and compute, update the below details 
 sed -i '6,7 s/^/#/' multinode
 sed -i '5s/control01/controller[0:2]/' multinode
 sed -i '15s/network01/controller[0:2]/' multinode
